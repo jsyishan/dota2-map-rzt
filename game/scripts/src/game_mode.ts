@@ -1,6 +1,8 @@
+import HeroUtils from "./framework/utils/hero_utils";
+import Log from "./framework/utils/logger";
 import { reloadable } from "./lib/tstl-utils";
 
-const heroSelectionTime = 10;
+const TAG = "GameMode"
 
 declare global {
     interface CDOTAGameRules {
@@ -24,14 +26,23 @@ export class GameMode {
     }
 
     private configure(): void {
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 3);
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 3);
+        GameRules.EnableCustomGameSetupAutoLaunch(true)
+        GameRules.SetCustomGameSetupAutoLaunchDelay(0)
 
-        GameRules.SetShowcaseTime(0);
-        GameRules.SetHeroSelectionTime(heroSelectionTime);
+        // time
+        GameRules.SetHeroSelectionTime(0)
+        GameRules.SetStrategyTime(0)
+        GameRules.SetPreGameTime(0)
+        GameRules.SetShowcaseTime(0)
+        GameRules.SetPostGameTime(5)
+
+        // hero
+        const GameMode = GameRules.GetGameModeEntity()
+        const heroName = HeroUtils.getRandomHeroName()
+        GameMode.SetCustomGameForceHero(heroName)
+        Log.i(TAG, heroName)
     }
-
-
+    
     public Reload() {
         print("Script reloaded!");
     }
