@@ -41,6 +41,11 @@ export class GameMode {
         const heroName = HeroUtils.getRandomHeroName()
         GameMode.SetCustomGameForceHero(heroName)
         Log.i(TAG, heroName)
+
+        // event
+        ListenToGameEvent("game_rules_state_change", () => {
+
+        }, this)
     }
     
     public Reload() {
