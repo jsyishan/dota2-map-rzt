@@ -11,11 +11,11 @@ export default class SpawnSystem implements ISystem {
     }
 
     public spawn(wave: IWave) {
-        const name = wave.group().name()
+        const name = wave.info().name()
         const position = Entities.FindByName(null, wave.route().birthPoint()).GetOrigin()
 
-        const total = wave.group().total()
-        const interval = wave.group().interval() ?? DEFAULT_INTERVAL
+        const total = wave.info().total()
+        const interval = wave.info().interval() ?? DEFAULT_INTERVAL
 
         Timers.CreateTimer(wave.delay() ?? 0, () => {
             let i = 0
@@ -23,7 +23,7 @@ export default class SpawnSystem implements ISystem {
                 if (i++ >= total) {
                     return
                 }
-                
+
                 const mob = CreateUnitByName(name, position, true, null, null, DotaTeam.NEUTRALS)
                 return interval
             })
