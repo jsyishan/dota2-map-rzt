@@ -1,8 +1,10 @@
-import SpawnSystemDelegate from "./spawn_system.delegate";
-import IWave from "./wave.interface";
-
+import SpawnSystemDelegate from "./spawn_system.delegate"
+import IWave from "./wave.interface"
 export default class SpawnWaveHandle {
     public readonly wave: IWave
+    
+    public onWaveEnded?: () => void
+    public remain: number
 
     private delegate: SpawnSystemDelegate
 
@@ -13,5 +15,6 @@ export default class SpawnWaveHandle {
 
     public stop() {
         this.delegate.stop(this.wave)
+        this.remain = 0
     }
 }

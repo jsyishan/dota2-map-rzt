@@ -1,7 +1,8 @@
 import GameCore from "./framework/core/game_core";
 import HeroUtils from "./framework/utils/hero_utils";
 import Log from "./framework/utils/logger";
-import Wave1 from "./gameplay/waves/wave1";
+import SequenceSpawner from "./gameplay/spawn/sequence_spawner";
+import Wave1 from "./gameplay/spawn/waves/wave1";
 import { reloadable } from "./lib/tstl-utils";
 
 const TAG = "GameMode"
@@ -44,10 +45,18 @@ export class GameMode {
         GameMode.SetCustomGameForceHero("npc_dota_hero_sven")
         Log.i(TAG, heroName)
 
+        const seqSpawner = new SequenceSpawner()
+        seqSpawner.addWaves([
+            new Wave1(),
+            new Wave1(),
+            new Wave1(),
+            new Wave1(),
+        ])
+
         // event
         ListenToGameEvent("game_rules_state_change", () => {
             if (GameRules.State_Get() === GameState.GAME_IN_PROGRESS) {
-                GameCore.Instance.spawnSystem.spawn(new Wave1())
+                seqSpawner.spawnUntilFinish()
             }
         }, this)
     }
