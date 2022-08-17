@@ -21,15 +21,15 @@ export default class SpawnSystem implements ISystem, SpawnSystemDelegate {
         if (!wave) {
             return null
         }
-        const name = wave.info().name
-        const position = Entities.FindByName(null, wave.route().birthPoint()).GetOrigin()
+        const name = wave.info.name
+        const position = Entities.FindByName(null, wave.route.birthPoint).GetOrigin()
 
-        const total = wave.info().total
-        const interval = wave.info().interval ?? DEFAULT_INTERVAL
+        const total = wave.info.total
+        const interval = wave.info.interval ?? DEFAULT_INTERVAL
 
         const handle = new SpawnWaveHandle(this, wave)
 
-        Timers.CreateTimer(wave.delay() ?? 0, () => {
+        Timers.CreateTimer(wave.delay ?? 0, () => {
             let i = 0
             const timer = Timers.CreateTimer(() => {
                 if (i++ >= total) {

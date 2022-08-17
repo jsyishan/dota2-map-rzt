@@ -3,21 +3,13 @@ import ISpawnRoute from "../../../framework/system/spawn/spawn_route.interface"
 import IWave from "../../../framework/system/spawn/wave.interface"
 
 export default class Wave1 implements IWave {
-    info(): ISpawnInfo {
-        return {
-            total: 10,
-            name: "rzt_unit_mob_001",
-            interval: 0.5
-        }
+    info: ISpawnInfo = {
+        total: 10,
+        name: "rzt_unit_mob_001",
+        interval: 0.5
     }
-    route(): ISpawnRoute {
-        return {
-            birthPoint() {
-                return "path_mob_1"
-            },
-        }
+    route: ISpawnRoute = {
+        birthPoint: "path_mob_1"
     }
-    delay() {
-        return 5.0
-    }
+    delay = 5.0
 }
