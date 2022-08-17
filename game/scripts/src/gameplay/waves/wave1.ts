@@ -13,6 +13,12 @@ export default class Wave1 implements IWave {
             },
             interval() {
                 return 0.5
+            },
+            repeat() {
+                return true
+            },
+            maximum() {
+                return 20
             }
         } as ISpawnInfo
     }

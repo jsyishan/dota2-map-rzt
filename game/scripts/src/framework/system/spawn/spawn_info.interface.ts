@@ -19,4 +19,18 @@ export default interface ISpawnInfo {
      * @returns number
      */
     interval?(): number
+
+    /** 
+     * @name 是否重复刷怪
+     * @description
+     * @returns boolean
+     */
+    repeat?(): boolean,
+
+    /** 
+     * @name 刷怪最大值
+     * @description 当刷怪模式为无限时，可以设置最大值防止怪物过多
+     * @returns number
+     */
+    maximum?(): number
 }
