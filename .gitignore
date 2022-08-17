@@ -26,7 +26,7 @@ game/resource/word_filter_cache_1.dat
 
 !scripts/**/*.*
 game/scripts/vscripts
-
+game/scripts/npc
 
 # kv 生成
 content/panorama/src/utils/sync_keyvalues.js.d.ts
