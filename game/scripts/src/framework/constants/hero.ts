@@ -76,6 +76,8 @@ enum DotaHero {
     /** @name 矮人直升机 */
     Gyrocopter = "npc_dota_hero_gyrocopter",
 
+    /** @name 森海飞霞 */
+    Hoodwink = "npc_dota_hero_hoodwink",
     /** @name 哈斯卡 */
     Huskar = "npc_dota_hero_huskar",
 
@@ -159,6 +161,8 @@ enum DotaHero {
     Pudge = "npc_dota_hero_pudge",
     /** @name 帕格纳 */
     Pugna = "npc_dota_hero_pugna",
+    /** @name 兽 */
+    PrimalBeast = "npc_dota_hero_primal_beast",
 
     /** @name 痛苦女王 */
     QueenOfPain = "npc_dota_hero_queenofpain",
