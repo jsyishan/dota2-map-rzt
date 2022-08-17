@@ -42,9 +42,26 @@ export class GameMode {
         // hero
         const GameMode = GameRules.GetGameModeEntity()
         const heroName = HeroUtils.getRandomHeroName()
-        GameMode.SetCustomGameForceHero("npc_dota_hero_sven")
-        Log.i(TAG, heroName)
+        GameMode.SetCustomGameForceHero(heroName)
+        Log.i(TAG, `pick hero: ${heroName}`)
 
+        GameMode.SetItemAddedToInventoryFilter((event) => {
+            // remove tp
+            const item = EntIndexToHScript(event.item_entindex_const) as CDOTA_Item
+            if (item.GetAbilityName() === 'item_tpscroll' && !item.GetPurchaser()) {
+                // remove hero's all abilities
+                const hero = EntIndexToHScript(event.item_parent_entindex_const) as CDOTA_BaseNPC_Hero
+                const abilityCount = hero.GetAbilityCount()
+                for (let i = 0; i < abilityCount; ++i) {
+                    hero.RemoveAbilityByHandle(hero.GetAbilityByIndex(i))
+                }
+                return false
+            }
+
+            return true
+        }, this)
+
+        // spawn
         const seqSpawner = new SequenceSpawner()
         seqSpawner.addWaves([
             new Wave1(),
@@ -60,7 +77,7 @@ export class GameMode {
             }
         }, this)
     }
-    
+
     public Reload() {
         print("Script reloaded!");
     }
