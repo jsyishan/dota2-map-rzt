@@ -1,5 +1,5 @@
 import ISpawnInfo from "./spawn_info.interface"
-import ISpawnRoute from "./spawn_point.interface"
+import ISpawnRoute from "./spawn_route.interface"
 
 export default interface IWave {
     /** 

@@ -10,7 +10,7 @@ const DEFAULT_INTERVAL = 0.1
 type TimerID = string
 
 export default class SpawnSystem implements ISystem, SpawnSystemDelegate {
-    private waves: Map<IWave, TimerID> 
+    private waves: Map<IWave, TimerID>
 
     constructor() {
         Log.i(TAG, "init")
@@ -18,16 +18,16 @@ export default class SpawnSystem implements ISystem, SpawnSystemDelegate {
     }
 
     public spawn(wave: IWave): SpawnWaveHandle {
-        const name = wave.info().name()
+        const name = wave.info().name
         const position = Entities.FindByName(null, wave.route().birthPoint()).GetOrigin()
 
-        const total = wave.info().total()
-        const interval = wave.info().interval() ?? DEFAULT_INTERVAL
+        const total = wave.info().total
+        const interval = wave.info().interval ?? DEFAULT_INTERVAL
 
         Timers.CreateTimer(wave.delay() ?? 0, () => {
             let i = 0
             const timer = Timers.CreateTimer(() => {
-                if (!wave.info().repeat() && i++ >= total) {
+                if (i++ >= total) {
                     return
                 }
 
