@@ -114,6 +114,8 @@ enum DotaHero {
 
     /** @name 马格纳斯 */
     Magnataur = "npc_dota_hero_magnataur",
+    /** @name 玛西 */
+    Marci = "npc_dota_hero_marci",
     /** @name 马尔斯 */
     Mars = "npc_dota_hero_mars",
     /** @name 美杜莎 */
