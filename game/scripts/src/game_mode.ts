@@ -1,3 +1,4 @@
+import { CustomUnit } from "./framework/constants/unit";
 import GameCore from "./framework/core/game_core";
 import HeroUtils from "./framework/utils/hero_utils";
 import Log from "./framework/utils/logger";
@@ -21,6 +22,7 @@ export class GameMode {
     }
 
     public static Activate(this: void) {
+        GameCore.Instance   // just for init
         GameRules.Addon = new GameMode();
     }
 
@@ -55,6 +57,10 @@ export class GameMode {
                 for (let i = 0; i < abilityCount; ++i) {
                     hero.RemoveAbilityByHandle(hero.GetAbilityByIndex(i))
                 }
+                // set all cap to 1
+                hero.SetBaseStrength(1)
+                hero.SetBaseAgility(1)
+                hero.SetBaseIntellect(1)
                 return false
             }
 
@@ -75,6 +81,28 @@ export class GameMode {
             if (GameRules.State_Get() === GameState.GAME_IN_PROGRESS) {
                 seqSpawner.spawnUntilFinish()
             }
+        }, this)
+        
+        ListenToGameEvent("entity_killed", (event) => {
+            const unit = EntIndexToHScript(event.entindex_killed) as CDOTA_BaseNPC
+            if (unit.GetUnitName() === CustomUnit.Mob001) {
+                const killer = EntIndexToHScript(event.entindex_attacker) as CDOTA_BaseNPC
+                if (killer.IsOwnedByAnyPlayer() && killer.IsRealHero()) {
+                    switch (RandomInt(0, 2)) {
+                        case 0:
+                            killer.ModifyStrength(1)
+                            break
+                        case 1:
+                            killer.ModifyAgility(1)
+                            break
+                        case 2:
+                            killer.ModifyIntellect(1)
+                            break
+                    }
+                    killer.CalculateStatBonus(true)
+                }
+            }
+
         }, this)
     }
 
