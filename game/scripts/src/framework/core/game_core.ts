@@ -1,10 +1,15 @@
+import EventSystem from "../system/event/event_system"
 import SpawnSystem from "../system/spawn/spawn_system"
+import ISystem from "../system/system.interface"
 import Log from "../utils/logger"
 
 const TAG = "Framework.GameCore"
 
 export default class GameCore {
     public readonly spawnSystem: SpawnSystem
+    public readonly eventSystem: EventSystem
+
+    private systems: Array<ISystem>
 
     private static _instance: GameCore = undefined
 
@@ -17,6 +22,24 @@ export default class GameCore {
 
     private constructor() {
         Log.i(TAG, "init")
+        this.systems = []
+
         this.spawnSystem = new SpawnSystem()
+        this.eventSystem = new EventSystem()
+
+        this.systems.push(this.spawnSystem)
+        this.systems.push(this.eventSystem)
+
+        this.systems.forEach(s => {
+            s.onStart()
+        })
+        
+        GameRules.GetGameModeEntity().SetThink(() => {
+            const dt = GameRules.GetGameFrameTime()
+            this.systems.forEach(s => {
+                s.onUpdate(dt)
+            })
+            return 0
+        }, this, "OnUpdate", 0)
     }
 }

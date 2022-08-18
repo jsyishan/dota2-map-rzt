@@ -13,7 +13,6 @@ export default class SpawnSystem implements ISystem, SpawnSystemDelegate {
     private waves: Map<IWave, TimerID>
 
     constructor() {
-        Log.i(TAG, "init")
         this.waves = new Map()
     }
 
@@ -51,5 +50,17 @@ export default class SpawnSystem implements ISystem, SpawnSystemDelegate {
         if (timer) {
             Timers.RemoveTimer(timer)
         }
+    }
+
+    waveStringify(wave: IWave) {
+        return `(${wave.constructor.name}) delay: ${wave.delay}, mob: ${wave.info.name}, interval: ${wave.info.interval}, total: ${wave.info.total}, birthPoint: ${wave.route.birthPoint}`
+    }
+
+    onStart() {
+        Log.i(TAG, "start")
+    }
+
+    onUpdate(dt: number) {
+
     }
 }
