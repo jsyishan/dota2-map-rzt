@@ -21,16 +21,31 @@ function dump(o: any) {
     }
 }
 
+function getInfo(...args) {
+    let info
+    if (args.length > 1) {
+        info = dump(args)
+    } else if (args.length === 1 && typeof(args[0]) === 'object') {
+        info = dump(args)
+    } else {
+        info = args[0]
+    }
+    return info
+}
+
+function _print(tag, level, ...args) {
+    print(`${GetSystemDate()}-${GetSystemTime()} [${tag}][${level}] ${getInfo(...args)}`)
+}
 export default class Log {
     static i(tag, ...args) {
-        print(`[${tag}][${LogLevel.Info}] ${args.length > 1 ? dump(args) : args[0]}`)
+        _print(tag, LogLevel.Info, ...args)
     }
 
     static w(tag, ...args) {
-        print(`[${tag}][${LogLevel.Warn}] ${args.length > 1 ? dump(args) : args[0]}`)
+        _print(tag, LogLevel.Warn, ...args)
     }
 
     static e(tag, ...args) {
-        print(`[${tag}][${LogLevel.Error}] ${args.length > 1 ? dump(args) : args[0]}`)
+        _print(tag, LogLevel.Error, ...args)
     }
 }
