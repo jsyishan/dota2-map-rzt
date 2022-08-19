@@ -37,4 +37,8 @@ export default class HeroUtils {
     static getRandomHeroAbility(): string {
         return allAbilitiesWithoutSpecial[RandomInt(0, allAbilitiesWithoutSpecial.length - 1)]
     }
+
+    static getAllHeroes(): string[] {
+        return Array.from(allHeroes)
+    }
 }

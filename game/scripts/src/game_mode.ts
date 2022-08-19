@@ -1,6 +1,5 @@
-import { CustomUnit } from "./framework/constants/unit";
 import GameCore from "./framework/core/game_core";
-import IEvent from "./framework/system/event/event-interface";
+import PrecacheLogic from "./framework/core/precache/precacheLogic";
 import HeroUtils from "./framework/utils/hero_utils";
 import Log from "./framework/utils/logger";
 import Event_DotaPlayerGainedLevel from "./gameplay/event/dota_player_gained_level";
@@ -21,7 +20,7 @@ declare global {
 export class GameMode {
     public static Precache(this: void, context: CScriptPrecacheContext) {
         PrecacheResource("particle", "particles/units/heroes/hero_meepo/meepo_earthbind_projectile_fx.vpcf", context);
-        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_meepo.vsndevts", context);
+        PrecacheLogic.precache(context)
     }
 
     public static Activate(this: void) {
