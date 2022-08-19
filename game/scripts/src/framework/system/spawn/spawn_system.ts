@@ -1,8 +1,8 @@
 import Log from "../../utils/logger";
-import ISystem from "../system.interface"
-import SpawnSystemDelegate from "./spawn_system.delegate";
+import ISystem from "../system-interface"
+import SpawnSystemDelegate from "./spawn_system-delegate";
 import SpawnWaveHandle from "./spawn_wave_handle";
-import IWave from "./wave.interface"
+import IWave from "./wave-interface"
 
 const TAG = "Framework.System.SpawnSystem"
 const DEFAULT_INTERVAL = 0.1

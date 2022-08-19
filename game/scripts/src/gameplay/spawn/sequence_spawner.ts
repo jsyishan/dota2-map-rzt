@@ -1,4 +1,4 @@
-import IWave from "../../framework/system/spawn/wave.interface"
+import IWave from "../../framework/system/spawn/wave-interface"
 import Log from "../../framework/utils/logger"
 import BaseSpawner from "./base_spawner"
 

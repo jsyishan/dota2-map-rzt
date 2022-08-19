@@ -1,6 +1,6 @@
 import GameCore from "../../framework/core/game_core"
 import SpawnWaveHandle from "../../framework/system/spawn/spawn_wave_handle"
-import IWave from "../../framework/system/spawn/wave.interface"
+import IWave from "../../framework/system/spawn/wave-interface"
 import Log from "../../framework/utils/logger"
 
 const TAG = "GamePlay.Spawn.BaseSpawner"

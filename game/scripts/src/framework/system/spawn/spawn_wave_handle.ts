@@ -1,5 +1,5 @@
-import SpawnSystemDelegate from "./spawn_system.delegate"
-import IWave from "./wave.interface"
+import SpawnSystemDelegate from "./spawn_system-delegate"
+import IWave from "./wave-interface"
 export default class SpawnWaveHandle {
     public readonly wave: IWave
     

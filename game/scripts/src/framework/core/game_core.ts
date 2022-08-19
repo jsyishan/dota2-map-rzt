@@ -1,6 +1,6 @@
 import EventSystem from "../system/event/event_system"
 import SpawnSystem from "../system/spawn/spawn_system"
-import ISystem from "../system/system.interface"
+import ISystem from "../system/system-interface"
 import Log from "../utils/logger"
 
 const TAG = "Framework.GameCore"
