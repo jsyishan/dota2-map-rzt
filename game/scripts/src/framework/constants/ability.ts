@@ -665,11 +665,11 @@ enum DoomBringer {
     BringerScorchedEarth = "doom_bringer_scorched_earth",
     /** @name */
     BringerInfernalBlade = "doom_bringer_infernal_blade",
-    /** @name */
-    BringerEmpty1 = "doom_bringer_empty1",
-    /** @name */
-    BringerEmpty2 = "doom_bringer_empty2",
-    /** @name */
+    // /** @name */
+    // BringerEmpty1 = "doom_bringer_empty1",
+    // /** @name */
+    // BringerEmpty2 = "doom_bringer_empty2",
+    /** @name 末日*/
     BringerDoom = "doom_bringer_doom",
     /** @name */
     BonusHp250 = "special_bonus_hp_250",
@@ -1022,18 +1022,18 @@ enum Huskar {
 }
 
 enum Invoker {
-    /** @name */
-    Quas = "invoker_quas",
-    /** @name */
-    Wex = "invoker_wex",
-    /** @name */
-    Exort = "invoker_exort",
-    /** @name */
-    Empty1 = "invoker_empty1",
-    /** @name */
-    Empty2 = "invoker_empty2",
-    /** @name */
-    Invoke = "invoker_invoke",
+    // /** @name */
+    // Quas = "invoker_quas",
+    // /** @name */
+    // Wex = "invoker_wex",
+    // /** @name */
+    // Exort = "invoker_exort",
+    // /** @name */
+    // Empty1 = "invoker_empty1",
+    // /** @name */
+    // Empty2 = "invoker_empty2",
+    // /** @name */
+    // Invoke = "invoker_invoke",
     /** @name */
     ColdSnap = "invoker_cold_snap",
     /** @name */
@@ -1634,8 +1634,8 @@ enum NagaSiren {
     SirenRipTide = "naga_siren_rip_tide",
     /** @name */
     SirenSongOfTheSiren = "naga_siren_song_of_the_siren",
-    /** @name */
-    SirenSongOfTheSirenCancel = "naga_siren_song_of_the_siren_cancel",
+    // /** @name */
+    // SirenSongOfTheSirenCancel = "naga_siren_song_of_the_siren_cancel",
     /** @name */
     BonusMp250 = "special_bonus_mp_250",
     /** @name */
@@ -1941,8 +1941,8 @@ enum Phoenix {
     FireSpirits = "phoenix_fire_spirits",
     /** @name */
     SunRay = "phoenix_sun_ray",
-    /** @name */
-    SunRayToggleMoveEmpty = "phoenix_sun_ray_toggle_move_empty",
+    // /** @name */
+    // SunRayToggleMoveEmpty = "phoenix_sun_ray_toggle_move_empty",
     /** @name */
     Supernova = "phoenix_supernova",
     /** @name */
@@ -2054,7 +2054,7 @@ enum Pugna {
     BonusUniquePugna2 = "special_bonus_unique_pugna_2",
 }
 
-enum Queenofpain {
+enum QueenOfPain {
     /** @name */
     ShadowStrike = "queenofpain_shadow_strike",
     /** @name */
@@ -2165,8 +2165,8 @@ enum Riki {
 enum Rubick {
     /** @name */
     Telekinesis = "rubick_telekinesis",
-    /** @name */
-    TelekinesisLand = "rubick_telekinesis_land",
+    // /** @name */
+    // TelekinesisLand = "rubick_telekinesis_land",
     /** @name */
     FadeBolt = "rubick_fade_bolt",
     /** @name */
@@ -3359,7 +3359,7 @@ const DotaAbility = {
     /** @name */
     Pugna,
     /** @name */
-    Queenofpain,
+    Queenofpain: QueenOfPain,
     /** @name */
     Rattletrap,
     /** @name */
