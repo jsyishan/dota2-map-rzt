@@ -34,7 +34,7 @@ export default class HeroUtils {
     static getRandomHeroName(): string {
         return allHeroes[RandomInt(0, allHeroes.length - 1)]
     }
-    static getRandomHeroAbility(): string {
+    static getRandomHeroAbilityName(): string {
         return allAbilitiesWithoutSpecial[RandomInt(0, allAbilitiesWithoutSpecial.length - 1)]
     }
 

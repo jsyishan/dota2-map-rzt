@@ -3,7 +3,9 @@ import PrecacheLogic from "./framework/core/precache/precacheLogic";
 import HeroUtils from "./framework/utils/hero_utils";
 import Log from "./framework/utils/logger";
 import Event_DotaPlayerGainedLevel from "./gameplay/event/dota_player_gained_level";
+import Event_DotaPlayerUsedAbility from "./gameplay/event/dota_player_used_ability";
 import Event_EntityKilled from "./gameplay/event/entity_killed";
+import RepeatSpawner from "./gameplay/spawn/repeat_spawner";
 import SequenceSpawner from "./gameplay/spawn/sequence_spawner";
 import Wave1 from "./gameplay/spawn/waves/wave1";
 import { reloadable } from "./lib/tstl-utils";
@@ -66,11 +68,15 @@ export class GameMode {
                 hero.SetBaseIntellect(1)
 
                 // give random ability
-                const a = HeroUtils.getRandomHeroAbility()
-                Log.i(TAG, `ability: ${a}`)
-                const ability = hero.AddAbility(a)
+                const abilityName = HeroUtils.getRandomHeroAbilityName()
+                Log.i(TAG, `ability: ${abilityName}`)
+                const ability = hero.AddAbility(abilityName)
                 ability.SetLevel(1)
                 hero.SetAbilityPoints(0)
+
+                // full vision
+                hero.SetDayTimeVisionRange(10000000)
+                hero.SetNightTimeVisionRange(10000000)
 
                 return false
             }
@@ -79,22 +85,32 @@ export class GameMode {
         }, this)
 
         // spawn
-        const seqSpawner = new SequenceSpawner()
-        seqSpawner.addWaves([
-            new Wave1(),
-            new Wave1(),
-            new Wave1(),
-            new Wave1(),
-        ])
+        // const spawner = new SequenceSpawner()
+        // seqSpawner.addWaves([
+        //     new Wave1(),
+        //     new Wave1(),
+        //     new Wave1(),
+        //     new Wave1(),
+        // ])
+
+        const leftSpawner = new RepeatSpawner()
+        leftSpawner.wave = new Wave1()
+
+        const rightSpawner = new RepeatSpawner()
+        const wave1 = new Wave1()
+        wave1.route.birthPoint = 'l' + wave1.route.birthPoint
+        rightSpawner.wave = wave1
 
         // event
         GameCore.Instance.eventSystem.rawRegisterEvent("game_rules_state_change", (e) => {
             if (GameRules.State_Get() === GameState.GAME_IN_PROGRESS) {
-                seqSpawner.spawnUntilFinish()
+                leftSpawner.spawn()
+                rightSpawner.spawn()
             }
         })
         GameCore.Instance.eventSystem.registerEvent(Event_EntityKilled)
         GameCore.Instance.eventSystem.registerEvent(Event_DotaPlayerGainedLevel)
+        GameCore.Instance.eventSystem.registerEvent(Event_DotaPlayerUsedAbility)
     }
 
     public Reload() {

@@ -21,6 +21,9 @@ export default class Event_EntityKilled implements IEvent<"entity_killed"> {
                         break
                 }
                 killer.CalculateStatBonus(true)
+
+                // regen mana
+                killer.GiveMana(10)
             }
         }
     }
