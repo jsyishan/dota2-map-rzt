@@ -27,6 +27,10 @@ export default class SequenceSpawner extends BaseSpawner {
         }
     }
 
+    stop() {
+        
+    }
+
     spawnUntilFinish() {
         const handle = this.spawn()
         if (handle) {
