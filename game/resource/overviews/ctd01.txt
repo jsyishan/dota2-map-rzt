@@ -1,0 +1,8 @@
+ctd01
+{
+	material materials/overviews/ctd01.vmat
+	pos_x -8064
+	pos_y 8128
+	scale 16.000
+}
+
