@@ -1286,10 +1286,10 @@ enum LifeStealer {
     StealerAssimilateEject = "life_stealer_assimilate_eject",
     /** @name */
     StealerInfest = "life_stealer_infest",
-    /** @name */
-    StealerControl = "life_stealer_control",
-    /** @name */
-    StealerConsume = "life_stealer_consume",
+    // /** @name */
+    // StealerControl = "life_stealer_control",
+    // /** @name */
+    // StealerConsume = "life_stealer_consume",
     /** @name */
     BonusAllStats5 = "special_bonus_all_stats_5",
     /** @name */
@@ -2633,8 +2633,8 @@ enum TemplarAssassin {
     AssassinPsiBlades = "templar_assassin_psi_blades",
     /** @name */
     AssassinTrap = "templar_assassin_trap",
-    /** @name */
-    AssassinPsionicTrap = "templar_assassin_psionic_trap",
+    // /** @name */
+    // AssassinPsionicTrap = "templar_assassin_psionic_trap",
     /** @name */
     BonusAttackSpeed25 = "special_bonus_attack_speed_25",
     /** @name */
@@ -2826,8 +2826,8 @@ enum Tusk {
     Snowball = "tusk_snowball",
     /** @name */
     FrozenSigil = "tusk_frozen_sigil",
-    /** @name */
-    LaunchSnowball = "tusk_launch_snowball",
+    // /** @name */
+    // LaunchSnowball = "tusk_launch_snowball",
     /** @name */
     WalrusKick = "tusk_walrus_kick",
     /** @name */
@@ -3129,10 +3129,10 @@ enum Wisp {
     Spirits = "wisp_spirits",
     /** @name */
     Overcharge = "wisp_overcharge",
-    /** @name */
-    Empty1 = "wisp_empty1",
-    /** @name */
-    Empty2 = "wisp_empty2",
+    // /** @name */
+    // Empty1 = "wisp_empty1",
+    // /** @name */
+    // Empty2 = "wisp_empty2",
     /** @name */
     Relocate = "wisp_relocate",
     /** @name */
