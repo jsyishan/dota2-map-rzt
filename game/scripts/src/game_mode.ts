@@ -75,7 +75,7 @@ export class GameMode {
                 ability.SetLevel(1)
                 hero.SetAbilityPoints(0)
 
-                hero.AddItemByName("item_blink")
+                // hero.AddItemByName("item_blink")
 
                 return false
             }
