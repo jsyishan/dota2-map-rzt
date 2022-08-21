@@ -20,7 +20,7 @@ export default class Event_EntityKilled implements IEvent<"entity_killed"> {
             this.spawner.addWave(new class implements IWave {
                 delay = 1
                 info = {
-                    total: 2,
+                    total: 1,
                     interval: 0.3,
                     name: unit.GetUnitName(),
                     team: killer.GetTeam()
