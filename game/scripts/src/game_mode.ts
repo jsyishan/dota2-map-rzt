@@ -40,8 +40,8 @@ export class GameMode {
     }
 
     private configure(): void {
-        GameRules.EnableCustomGameSetupAutoLaunch(true)
-        GameRules.SetCustomGameSetupAutoLaunchDelay(0)
+        // GameRules.EnableCustomGameSetupAutoLaunch(true)
+        // GameRules.SetCustomGameSetupAutoLaunchDelay(0)
 
         // time
         GameRules.SetHeroSelectionTime(0)
@@ -67,21 +67,15 @@ export class GameMode {
                     hero.RemoveAbilityByHandle(hero.GetAbilityByIndex(i))
                 }
 
-                // set all cap to 1
-                hero.SetBaseStrength(1)
-                hero.SetBaseAgility(1)
-                hero.SetBaseIntellect(1)
-
                 // give random ability
                 const abilityName = HeroUtils.getRandomHeroAbilityName()
                 Log.i(TAG, `ability: ${abilityName}`)
                 const ability = hero.AddAbility(abilityName)
+                Log.show(TAG, hero, true, abilityName)
                 ability.SetLevel(1)
                 hero.SetAbilityPoints(0)
 
-                // full vision
-                hero.SetDayTimeVisionRange(10000000)
-                hero.SetNightTimeVisionRange(10000000)
+                hero.AddItemByName("item_blink")
 
                 return false
             }
@@ -115,7 +109,7 @@ export class GameMode {
         })
         GameCore.Instance.eventSystem.registerEvent(Event_EntityKilled)
         GameCore.Instance.eventSystem.registerEvent(Event_DotaPlayerGainedLevel)
-        GameCore.Instance.eventSystem.registerEvent(Event_DotaPlayerUsedAbility)
+        // GameCore.Instance.eventSystem.registerEvent(Event_DotaPlayerUsedAbility)
     }
 
     public Reload() {

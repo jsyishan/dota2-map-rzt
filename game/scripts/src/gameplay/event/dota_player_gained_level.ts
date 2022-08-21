@@ -10,6 +10,7 @@ export default class Event_DotaPlayerGainedLevel implements IEvent<"dota_player_
         const hero = EntIndexToHScript(event.hero_entindex) as CDOTA_BaseNPC_Hero
         const ability = HeroUtils.getRandomHeroAbilityName()
         Log.i(TAG, `hero: ${hero.GetName()} level up to ${event.level}, learn ability: ${ability}`)
+        Log.show(TAG, hero, true, ability)
         hero.AddAbility(ability)
     }
 }
