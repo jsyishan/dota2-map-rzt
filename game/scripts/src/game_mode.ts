@@ -5,9 +5,14 @@ import Log from "./framework/utils/logger";
 import Event_DotaPlayerGainedLevel from "./gameplay/event/dota_player_gained_level";
 import Event_DotaPlayerUsedAbility from "./gameplay/event/dota_player_used_ability";
 import Event_EntityKilled from "./gameplay/event/entity_killed";
-import RepeatSpawner from "./gameplay/spawn/repeat_spawner";
-import SequenceSpawner from "./gameplay/spawn/sequence_spawner";
-import Wave1 from "./gameplay/spawn/waves/wave1";
+import RepeatSpawnerPool from "./gameplay/spawn/repeat_spawner_pool";
+import WaveTop1 from "./gameplay/spawn/waves/wave-top-1";
+import WaveTop2 from "./gameplay/spawn/waves/wave-top-2";
+import WaveTop3 from "./gameplay/spawn/waves/wave-top-3";
+import WaveTop4 from "./gameplay/spawn/waves/wave-top-4";
+import WaveTop5 from "./gameplay/spawn/waves/wave-top-5";
+import WaveTop6 from "./gameplay/spawn/waves/wave-top-6";
+import WaveTop7 from "./gameplay/spawn/waves/wave-top-7";
 import { reloadable } from "./lib/tstl-utils";
 
 const TAG = "GameMode"
@@ -93,19 +98,19 @@ export class GameMode {
         //     new Wave1(),
         // ])
 
-        const leftSpawner = new RepeatSpawner()
-        leftSpawner.wave = new Wave1()
-
-        const rightSpawner = new RepeatSpawner()
-        const wave1 = new Wave1()
-        wave1.route.birthPoint = 'l' + wave1.route.birthPoint
-        rightSpawner.wave = wave1
+        const spawnPool = new RepeatSpawnerPool()
+        spawnPool.addWave(new WaveTop1())
+        spawnPool.addWave(new WaveTop2())
+        spawnPool.addWave(new WaveTop3())
+        spawnPool.addWave(new WaveTop4())
+        spawnPool.addWave(new WaveTop5())
+        spawnPool.addWave(new WaveTop6())
+        spawnPool.addWave(new WaveTop7())
 
         // event
         GameCore.Instance.eventSystem.rawRegisterEvent("game_rules_state_change", (e) => {
             if (GameRules.State_Get() === GameState.GAME_IN_PROGRESS) {
-                leftSpawner.spawn()
-                rightSpawner.spawn()
+                spawnPool.start()
             }
         })
         GameCore.Instance.eventSystem.registerEvent(Event_EntityKilled)

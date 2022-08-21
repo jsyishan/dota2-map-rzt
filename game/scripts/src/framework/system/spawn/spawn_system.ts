@@ -21,7 +21,8 @@ export default class SpawnSystem implements ISystem, SpawnSystemDelegate {
             return null
         }
         const name = wave.info.name
-        const position = Entities.FindByName(null, wave.route.birthPoint).GetOrigin()
+        const birthPointEntity = Entities.FindByName(null, wave.route.birthPoint)
+        const position = birthPointEntity.GetOrigin()
 
         const total = wave.info.total
         const interval = wave.info.interval ?? DEFAULT_INTERVAL
@@ -37,7 +38,27 @@ export default class SpawnSystem implements ISystem, SpawnSystemDelegate {
                 }
                 handle.remain = total - i
 
-                const mob = CreateUnitByName(name, position, true, null, null, DotaTeam.NEUTRALS)
+                const mob = CreateUnitByName(name, position, true, null, null, wave.info.team ?? DotaTeam.NEUTRALS)
+                if (wave.route.reachNext) {
+                    mob.SetMustReachEachGoalEntity(true)
+                    mob.SetInitialGoalEntity(birthPointEntity)
+                    mob.SetAttackCapability(UnitAttackCapability.NO_ATTACK)
+                }
+
+                if (mob.GetTeam() === DotaTeam.NEUTRALS) {
+                    mob.SetContextThink("MoveBack", () => {
+                        if (!mob || !mob.IsAlive()) {
+                            return
+                        }
+                        const distance = ((mob.GetOrigin() - position) as Vector).Length2D()
+                        if (wave.info.followRange && distance >= wave.info.followRange) {
+                            Log.i(TAG, distance)
+                            mob.SetForceAttackTarget(mob)
+                            mob.MoveToPosition(position)
+                        }
+                        return 1
+                    }, 1)
+                }
                 return interval
             })
             this.waves.set(wave, timer)
@@ -53,7 +74,7 @@ export default class SpawnSystem implements ISystem, SpawnSystemDelegate {
     }
 
     waveStringify(wave: IWave) {
-        return `(${wave.constructor.name}) delay: ${wave.delay}, mob: ${wave.info.name}, interval: ${wave.info.interval}, total: ${wave.info.total}, birthPoint: ${wave.route.birthPoint}`
+        return `(${wave.constructor.name}) delay: ${wave.delay}, name: ${wave.info.name}, team: ${wave.info.team} interval: ${wave.info.interval}, total: ${wave.info.total}, birthPoint: ${wave.route.birthPoint}`
     }
 
     onStart() {

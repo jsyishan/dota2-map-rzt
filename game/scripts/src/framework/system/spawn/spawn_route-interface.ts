@@ -5,4 +5,6 @@ export default interface ISpawnRoute {
      * @description 刷怪出生点
      */
     birthPoint: string
+
+    reachNext?: boolean
 }
