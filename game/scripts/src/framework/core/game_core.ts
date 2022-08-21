@@ -2,12 +2,14 @@ import EventSystem from "../system/event/event_system"
 import SpawnSystem from "../system/spawn/spawn_system"
 import ISystem from "../system/system-interface"
 import Log from "../utils/logger"
+import GlobalEntity from "./global_entity"
 
 const TAG = "Framework.GameCore"
 
 export default class GameCore {
     public readonly spawnSystem: SpawnSystem
     public readonly eventSystem: EventSystem
+    public readonly globalEntity: GlobalEntity
 
     private systems: Array<ISystem>
 
@@ -22,6 +24,7 @@ export default class GameCore {
 
     private constructor() {
         Log.i(TAG, "init")
+        this.globalEntity = new GlobalEntity()
         this.systems = []
 
         this.spawnSystem = new SpawnSystem()

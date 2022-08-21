@@ -102,13 +102,41 @@ export class GameMode {
         spawnPool.addWave(new WaveTop7())
 
         // event
-        GameCore.Instance.eventSystem.rawRegisterEvent("game_rules_state_change", (e) => {
+        const EventSystem = GameCore.Instance.eventSystem
+        EventSystem.rawRegisterEvent("game_rules_state_change", (e) => {
             if (GameRules.State_Get() === GameState.GAME_IN_PROGRESS) {
                 spawnPool.start()
             }
         })
-        GameCore.Instance.eventSystem.registerEvent(Event_EntityKilled)
-        GameCore.Instance.eventSystem.registerEvent(Event_DotaPlayerGainedLevel)
+        const direBaseCorner = Entities.FindByName(null, "spawner_radiant_top8")
+        const radiantBaseCorner = Entities.FindByName(null, "spawner_dire_top7")
+
+        const inerval = EventSystem.registerInterval(() => {
+            const findFunc = (team: DotaTeam, pos: Vector, target: CDOTA_BaseNPC) => {
+                const units = FindUnitsInRadius(
+                    team,
+                    pos,
+                    null,
+                    1000, 
+                    UnitTargetTeam.FRIENDLY, 
+                    UnitTargetType.CREEP, 
+                    UnitTargetFlags.NONE, 
+                    FindOrder.ANY, 
+                    false)
+    
+                if (units.length > 0) {
+                    units.forEach(u => {
+                        u.MoveToPosition(target.GetAbsOrigin())
+                    })
+                }
+            }
+
+            findFunc(DotaTeam.GOODGUYS, direBaseCorner.GetAbsOrigin(), GameCore.Instance.globalEntity.getDireBaseEntity())
+            findFunc(DotaTeam.BADGUYS, radiantBaseCorner.GetAbsOrigin(), GameCore.Instance.globalEntity.getRadiantBaseEntity())
+        }, 30)
+
+        EventSystem.registerEvent(Event_EntityKilled)
+        EventSystem.registerEvent(Event_DotaPlayerGainedLevel)
         // GameCore.Instance.eventSystem.registerEvent(Event_DotaPlayerUsedAbility)
     }
 
