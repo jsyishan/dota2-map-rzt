@@ -15,7 +15,7 @@
                 "**/*.cfg"
             ],
             "encryptFiles": [
-                "**/*.lua",
+                "!**/*.lua",
                 "!game/scripts/vscripts/lualib_bundle.lua",
                 "!game/scripts/vscripts/addon_init.lua",
                 "!game/scripts/vscripts/addon_game_mode.lua",
@@ -25,7 +25,7 @@
                 "!game/scripts/vscripts/utils/aeslua/**/*.lua"
             ],
             "encryptDedicatedServerKeyTest": "Invalid_NotOnDedicatedServer",
-            "encryptDedicatedServerKeyRelease": "这里需要填入正式的发布密钥 GetDedicatedServerKeyV2('version') 的结果"
+            "encryptDedicatedServerKeyRelease": "8C56FCDC4C3C261EE85A78B0BED85152"
         }
     },
     "scripts": {
