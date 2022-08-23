@@ -25,7 +25,7 @@ module.exports = {
                 test: /\.xml$/,
                 loader: "@demon673/webpack-panorama/lib/layout-loader",
                 options: {
-                    cacheable: true,
+                    // cacheable: true,
                 },
             },
             {
@@ -33,7 +33,7 @@ module.exports = {
                 issuer: /\.xml$/,
                 loader: "@demon673/webpack-panorama/lib/entry-loader",
                 options: {
-                    cacheable: true,
+                    // cacheable: true,
                 },
             },
             {
@@ -84,6 +84,7 @@ module.exports = {
                 },
                 { import: "./hud/layout.xml", type: "Hud" },
                 { import: "./end_screen/layout.xml", type: "EndScreen" },
+                { import: "./gacha/layout.xml", type: "Hud"}
             ],
         }),
         new ForkTsCheckerWebpackPlugin({
