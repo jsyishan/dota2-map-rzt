@@ -5,5 +5,5 @@
     <styles>
         <include src="./styles.less" />
     </styles>
-    <Panel class="root" hittest="true" />
+    <Panel class="root" hittest="false" />
 </root>
