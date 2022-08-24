@@ -40,8 +40,15 @@ export class GameMode {
     }
 
     private configure(): void {
-        // GameRules.EnableCustomGameSetupAutoLaunch(true)
-        // GameRules.SetCustomGameSetupAutoLaunchDelay(0)
+        if (IsInToolsMode()) {
+            Log.i(TAG, "tool mode")
+            GameRules.EnableCustomGameSetupAutoLaunch(true)
+            GameRules.SetCustomGameSetupAutoLaunchDelay(0)
+        }
+
+        // const
+        const GameMode = GameRules.GetGameModeEntity()
+        const EventSystem = GameCore.Instance.eventSystem
 
         // time
         GameRules.SetHeroSelectionTime(0)
@@ -51,7 +58,6 @@ export class GameMode {
         GameRules.SetPostGameTime(5)
 
         // hero
-        const GameMode = GameRules.GetGameModeEntity()
         const heroName = HeroUtils.getRandomHeroName()
         GameMode.SetCustomGameForceHero(heroName)
         Log.i(TAG, `pick hero: ${heroName}`)
@@ -76,6 +82,11 @@ export class GameMode {
                 hero.SetAbilityPoints(0)
 
                 // hero.AddItemByName("item_blink")
+
+                CustomGameEventManager.Send_ServerToAllClients("OnGachaEnter", {})
+                EventSystem.registerTimeout(() => {
+                    CustomGameEventManager.Send_ServerToAllClients("OnGachaExit", {})
+                }, 5)
 
                 return false
             }
@@ -102,7 +113,7 @@ export class GameMode {
         spawnPool.addWave(new WaveTop7())
 
         // event
-        const EventSystem = GameCore.Instance.eventSystem
+        
         EventSystem.rawRegisterEvent("game_rules_state_change", (e) => {
             if (GameRules.State_Get() === GameState.GAME_IN_PROGRESS) {
                 spawnPool.start()

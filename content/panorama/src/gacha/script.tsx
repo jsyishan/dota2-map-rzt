@@ -1,32 +1,49 @@
 import React from 'react';
 import { render } from '@demon673/react-panorama';
 
-function HeroRow({ heroName }: { heroName: string }) {
-    return (
-        <Panel style={{ flowChildren: 'right' }}>
-            <DOTAHeroImage heroimagestyle='icon' heroname={heroName} />
-            <Label style={{ marginLeft: '5px' }} localizedText={heroName} />
-        </Panel>
-    )
+type ItemProps = {
+    name: string
 }
 
-function Gacha() {
-    return (
-        <Panel style={{ border: '10px solid red', flowChildren: 'down' }}>
-            <TextButton
-                className='TestButon'
-                text="test button"
-                style={{ fontSize: '100px' }}
-                onactivate={(btn) => {
-                    $.Msg("cnm")
-                }}
-            />
-            <HeroRow heroName="npc_dota_hero_abaddon" />
-            <HeroRow heroName="npc_dota_hero_abyssal_underlord" />
-            <HeroRow heroName="npc_dota_hero_alchemist" />
-        </Panel>
-    )
+type ItemState = {
+
 }
 
-render(<Gacha />, $.GetContextPanel())
+class Item extends React.Component<ItemProps, ItemState> {
+    render(): React.ReactNode {
+        return (
+            <Panel className='Item'>
+                <TextButton text="ABC" onactivate={() => {
+                    $.Msg("wtf")
+                }}/>
+            </Panel>
+        )
+    }
+}
+
+class Background extends React.Component {
+    render(): React.ReactNode {
+        return (
+            <Panel style={{flowChildren: 'down'}} className='Background'>
+                <Label style={{verticalAlign: 'middle', fontSize: '100px', horizontalAlign: 'center'}} text="抽卡" />
+                <Panel style={{flowChildren: 'right'}}>
+                    <Item name='test1'/>
+                    <Item name='test2'/>
+                    <Item name='test3'/>
+                </Panel>
+            </Panel>
+        )
+    }
+}
+
 $.Msg("test ui")
+
+GameEvents.Subscribe('OnGachaEnter', ()=> {
+    render(<Background />, $.GetContextPanel())
+    $.Msg("OnGachaEnter")
+})
+
+GameEvents.Subscribe('OnGachaExit', () => {
+    render(<></>, $.GetContextPanel())
+    $.Msg("OnGachaExit")
+})
