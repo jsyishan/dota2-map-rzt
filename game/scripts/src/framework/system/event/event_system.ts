@@ -2,6 +2,7 @@ import ISystem from "../system-interface"
 import IEvent from "./event-interface"
 
 type IntervalCallback = () => void
+type TimeoutCallback = () => void
 
 const intervals: Array<IntervalEvent> = [] 
 class IntervalEvent {
@@ -37,8 +38,15 @@ export default class EventSystem implements ISystem {
 
     registerInterval(callback: IntervalCallback, interval: number): IntervalEvent {
         const event = new IntervalEvent(callback, interval)
-        intervals.push(new IntervalEvent(callback, interval))
+        intervals.push(event)
         return event
+    }
+
+    registerTimeout(callback: TimeoutCallback, timeout: number) {
+        const e = this.registerInterval(() => {
+            callback()
+            e.stop()
+        }, timeout)
     }
 
     onStart() {
