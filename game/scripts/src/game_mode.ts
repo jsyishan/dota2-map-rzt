@@ -74,19 +74,42 @@ export class GameMode {
                 }
 
                 // give random ability
-                const abilityName = HeroUtils.getRandomHeroAbilityName()
-                Log.i(TAG, `ability: ${abilityName}`)
-                const ability = hero.AddAbility(abilityName)
-                Log.show(TAG, hero, true, abilityName)
-                ability.SetLevel(1)
-                hero.SetAbilityPoints(0)
+                // const abilityName = HeroUtils.getRandomHeroAbilityName()
+                // Log.i(TAG, `ability: ${abilityName}`)
+                // const ability = hero.AddAbility(abilityName)
+                // Log.show(TAG, hero, true, abilityName)
+                // ability.SetLevel(1)
+                // hero.SetAbilityPoints(0)
 
                 // hero.AddItemByName("item_blink")
 
-                CustomGameEventManager.Send_ServerToAllClients("OnGachaEnter", {})
-                EventSystem.registerTimeout(() => {
-                    CustomGameEventManager.Send_ServerToAllClients("OnGachaExit", {})
-                }, 5)
+                CustomGameEventManager.Send_ServerToAllClients("OnGachaEnter", {
+                    itemTypes: [0, 1, 2],
+                    itemNames: ['batrider_firefly', 'event_1', 'item_blink'],
+                    itemTexts: ['火焰飞行', '立即获得一个塔基单位', '跳刀']
+                })
+                // EventSystem.registerTimeout(() => {
+                //     CustomGameEventManager.Send_ServerToAllClients("OnGachaExit", {})
+                // }, 5)
+
+                CustomGameEventManager.RegisterListener('OnClickGachaItem', (userId, event) => {
+                    const player = PlayerResource.GetPlayer(event.PlayerID)
+                    const hero = player.GetAssignedHero()
+
+                    switch(event.itemType) {
+                        case 0:
+                            hero.AddAbility(event.itemName)
+                            Log.i(TAG, `select ability: ${event.itemName}`)
+                            break
+                        case 1:
+                            Log.i(TAG, `select event: ${event.itemName}`)
+                            break
+                        case 2:
+                            hero.AddItemByName(event.itemName)
+                            Log.i(TAG, `select item: ${event.itemName}`)
+                            break
+                    }
+                })
 
                 return false
             }
