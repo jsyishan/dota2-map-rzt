@@ -77,7 +77,7 @@ GameEvents.Subscribe('OnGachaEnter', (e) => {
         items.push({
             itemName: e.itemNames[i],
             itemType: e.itemTypes[i],
-            itemText: e.itemTexts[i]
+            itemText: e.itemTexts[i] === '' ? $.Localize(`#DOTA_Tooltip_Ability_${e.itemNames[i]}`) : e.itemTexts[i]
         })
     }
     render(<Background items={items}/>, $.GetContextPanel())
