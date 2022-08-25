@@ -121,5 +121,7 @@
         "proseWrap": "never",
         "trailingComma": "es5"
     },
-    "dependencies": {}
+    "dependencies": {
+        "ts-pattern": "^4.0.5"
+    }
 }
