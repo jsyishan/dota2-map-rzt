@@ -1,6 +1,6 @@
 import GameCore from "./framework/core/game_core";
 import PrecacheLogic from "./framework/core/precache/precacheLogic";
-import HeroUtils from "./framework/utils/hero_utils";
+import ConstantUtils from "./framework/utils/constant_utils";
 import Log from "./framework/utils/logger";
 import Event_DotaPlayerGainedLevel from "./gameplay/event/dota_player_gained_level";
 import Event_DotaPlayerUsedAbility from "./gameplay/event/dota_player_used_ability";
@@ -58,7 +58,7 @@ export class GameMode {
         GameRules.SetPostGameTime(5)
 
         // hero
-        const heroName = HeroUtils.getRandomHeroName()
+        const heroName = ConstantUtils.getRandomHeroName()
         GameMode.SetCustomGameForceHero(heroName)
         Log.i(TAG, `pick hero: ${heroName}`)
 
@@ -85,8 +85,8 @@ export class GameMode {
 
                 CustomGameEventManager.Send_ServerToAllClients("OnGachaEnter", {
                     itemTypes: [0, 1, 2],
-                    itemNames: ['batrider_firefly', 'event_1', 'item_blink'],
-                    itemTexts: ['火焰飞行', '立即获得一个塔基单位', '跳刀']
+                    itemNames: [ConstantUtils.getRandomHeroAbilityName(), 'event_1', ConstantUtils.getRandomItemName()],
+                    itemTexts: ['', '立即获得一个塔基单位', '']
                 })
                 // EventSystem.registerTimeout(() => {
                 //     CustomGameEventManager.Send_ServerToAllClients("OnGachaExit", {})
