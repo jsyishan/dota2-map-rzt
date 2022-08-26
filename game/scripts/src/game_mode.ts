@@ -1,5 +1,6 @@
 import GameCore from "./framework/core/game_core";
 import PrecacheLogic from "./framework/core/precache/precacheLogic";
+import UIUtils from "./framework/ui/ui_utils";
 import ConstantUtils from "./framework/utils/constant_utils";
 import Log from "./framework/utils/logger";
 import Event_DotaPlayerGainedLevel from "./gameplay/event/dota_player_gained_level";
@@ -73,24 +74,7 @@ export class GameMode {
                     hero.RemoveAbilityByHandle(hero.GetAbilityByIndex(i))
                 }
 
-                // give random ability
-                // const abilityName = HeroUtils.getRandomHeroAbilityName()
-                // Log.i(TAG, `ability: ${abilityName}`)
-                // const ability = hero.AddAbility(abilityName)
-                // Log.show(TAG, hero, true, abilityName)
-                // ability.SetLevel(1)
-                // hero.SetAbilityPoints(0)
-
-                // hero.AddItemByName("item_blink")
-
-                CustomGameEventManager.Send_ServerToAllClients("OnGachaEnter", {
-                    itemTypes: [0, 1, 2],
-                    itemNames: [ConstantUtils.getRandomHeroAbilityName(), 'event_1', ConstantUtils.getRandomItemName()],
-                    itemTexts: ['', '立即获得一个塔基单位', '']
-                })
-                // EventSystem.registerTimeout(() => {
-                //     CustomGameEventManager.Send_ServerToAllClients("OnGachaExit", {})
-                // }, 5)
+                UIUtils.showRandomGachaUI(null, true)
 
                 CustomGameEventManager.RegisterListener('OnClickGachaItem', (userId, event) => {
                     const player = PlayerResource.GetPlayer(event.PlayerID)
