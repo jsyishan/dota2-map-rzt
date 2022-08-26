@@ -66,7 +66,7 @@ enum DotaItem {
     /** @name */
     Cloak = "item_cloak",
     /** @name */
-    Courier = "item_courier",
+    // Courier = "item_courier",
     /** @name */
     CrimsonGuard = "item_crimson_guard",
     /** @name */
@@ -123,10 +123,10 @@ enum DotaItem {
     Gloves = "item_gloves",
     /** @name */
     GreaterCrit = "item_greater_crit",
-    /** @name */
-    GreevilWhistle = "item_greevil_whistle",
-    /** @name */
-    GreevilWhistleToggle = "item_greevil_whistle_toggle",
+    // /** @name */
+    // GreevilWhistle = "item_greevil_whistle",
+    // /** @name */
+    // GreevilWhistleToggle = "item_greevil_whistle_toggle",
     /** @name */
     GuardianGreaves = "item_guardian_greaves",
     /** @name */
@@ -245,190 +245,190 @@ enum DotaItem {
     Rapier = "item_rapier",
     /** @name */
     Reaver = "item_reaver",
-    /** @name */
-    RecipeAbyssalBlade = "item_recipe_abyssal_blade",
-    /** @name */
-    RecipeAetherLens = "item_recipe_aether_lens",
-    /** @name */
-    RecipeAncientJanggo = "item_recipe_ancient_janggo",
-    /** @name */
-    RecipeArcaneBoots = "item_recipe_arcane_boots",
-    /** @name */
-    RecipeArmlet = "item_recipe_armlet",
-    /** @name */
-    RecipeAssault = "item_recipe_assault",
-    /** @name */
-    RecipeBasher = "item_recipe_basher",
-    /** @name */
-    RecipeBfury = "item_recipe_bfury",
-    /** @name */
-    RecipeBlackKingBar = "item_recipe_black_king_bar",
-    /** @name */
-    RecipeBladeMail = "item_recipe_blade_mail",
-    /** @name */
-    RecipeBloodstone = "item_recipe_bloodstone",
-    /** @name */
-    RecipeBloodthorn = "item_recipe_bloodthorn",
-    /** @name */
-    RecipeBracer = "item_recipe_bracer",
-    /** @name */
-    RecipeBuckler = "item_recipe_buckler",
-    /** @name */
-    RecipeButterfly = "item_recipe_butterfly",
-    /** @name */
-    RecipeCrimsonGuard = "item_recipe_crimson_guard",
-    /** @name */
-    RecipeCyclone = "item_recipe_cyclone",
-    /** @name */
-    RecipeDagon = "item_recipe_dagon",
-    /** @name */
-    RecipeDagon2 = "item_recipe_dagon_2",
-    /** @name */
-    RecipeDagon3 = "item_recipe_dagon_3",
-    /** @name */
-    RecipeDagon4 = "item_recipe_dagon_4",
-    /** @name */
-    RecipeDagon5 = "item_recipe_dagon_5",
-    /** @name */
-    RecipeDesolator = "item_recipe_desolator",
-    /** @name */
-    RecipeDiffusalBlade = "item_recipe_diffusal_blade",
-    /** @name */
-    RecipeDiffusalBlade2 = "item_recipe_diffusal_blade_2",
-    /** @name */
-    RecipeDragonLance = "item_recipe_dragon_lance",
-    /** @name */
-    RecipeEchoSabre = "item_recipe_echo_sabre",
-    /** @name */
-    RecipeEtherealBlade = "item_recipe_ethereal_blade",
-    /** @name */
-    RecipeForceStaff = "item_recipe_force_staff",
-    /** @name */
-    RecipeGlimmerCape = "item_recipe_glimmer_cape",
-    /** @name */
-    RecipeGreaterCrit = "item_recipe_greater_crit",
-    /** @name */
-    RecipeGuardianGreaves = "item_recipe_guardian_greaves",
-    /** @name */
-    RecipeHandOfMidas = "item_recipe_hand_of_midas",
-    /** @name */
-    RecipeHeaddress = "item_recipe_headdress",
-    /** @name */
-    RecipeHeart = "item_recipe_heart",
-    /** @name */
-    RecipeHeavensHalberd = "item_recipe_heavens_halberd",
-    /** @name */
-    RecipeHelmOfTheDominator = "item_recipe_helm_of_the_dominator",
-    /** @name */
-    RecipeHoodOfDefiance = "item_recipe_hood_of_defiance",
-    /** @name */
-    RecipeHurricanePike = "item_recipe_hurricane_pike",
-    /** @name */
-    RecipeInvisSword = "item_recipe_invis_sword",
-    /** @name */
-    RecipeIronTalon = "item_recipe_iron_talon",
-    /** @name */
-    RecipeLesserCrit = "item_recipe_lesser_crit",
-    /** @name */
-    RecipeLotusOrb = "item_recipe_lotus_orb",
-    /** @name */
-    RecipeMaelstrom = "item_recipe_maelstrom",
-    /** @name */
-    RecipeMagicWand = "item_recipe_magic_wand",
-    /** @name */
-    RecipeManta = "item_recipe_manta",
-    /** @name */
-    RecipeMaskOfMadness = "item_recipe_mask_of_madness",
-    /** @name */
-    RecipeMedallionOfCourage = "item_recipe_medallion_of_courage",
-    /** @name */
-    RecipeMekansm = "item_recipe_mekansm",
-    /** @name */
-    RecipeMjollnir = "item_recipe_mjollnir",
-    /** @name */
-    RecipeMonkeyKingBar = "item_recipe_monkey_king_bar",
-    /** @name */
-    RecipeMoonShard = "item_recipe_moon_shard",
-    /** @name */
-    RecipeNecronomicon = "item_recipe_necronomicon",
-    /** @name */
-    RecipeNecronomicon2 = "item_recipe_necronomicon_2",
-    /** @name */
-    RecipeNecronomicon3 = "item_recipe_necronomicon_3",
-    /** @name */
-    RecipeNullTalisman = "item_recipe_null_talisman",
-    /** @name */
-    RecipeOblivionStaff = "item_recipe_oblivion_staff",
-    /** @name */
-    RecipeOctarineCore = "item_recipe_octarine_core",
-    /** @name */
-    RecipeOrchid = "item_recipe_orchid",
-    /** @name */
-    RecipePers = "item_recipe_pers",
-    /** @name */
-    RecipePhaseBoots = "item_recipe_phase_boots",
-    /** @name */
-    RecipePipe = "item_recipe_pipe",
-    /** @name */
-    RecipePoorMansShield = "item_recipe_poor_mans_shield",
-    /** @name */
-    RecipePowerTreads = "item_recipe_power_treads",
-    /** @name */
-    RecipeRadiance = "item_recipe_radiance",
-    /** @name */
-    RecipeRapier = "item_recipe_rapier",
-    /** @name */
-    RecipeRefresher = "item_recipe_refresher",
-    /** @name */
-    RecipeRingOfAquila = "item_recipe_ring_of_aquila",
-    /** @name */
-    RecipeRingOfBasilius = "item_recipe_ring_of_basilius",
-    /** @name */
-    RecipeRodOfAtos = "item_recipe_rod_of_atos",
-    /** @name */
-    RecipeSange = "item_recipe_sange",
-    /** @name */
-    RecipeSangeAndYasha = "item_recipe_sange_and_yasha",
-    /** @name */
-    RecipeSatanic = "item_recipe_satanic",
-    /** @name */
-    RecipeSheepstick = "item_recipe_sheepstick",
-    /** @name */
-    RecipeShivasGuard = "item_recipe_shivas_guard",
-    /** @name */
-    RecipeSilverEdge = "item_recipe_silver_edge",
-    /** @name */
-    RecipeSkadi = "item_recipe_skadi",
-    /** @name */
-    RecipeSolarCrest = "item_recipe_solar_crest",
-    /** @name */
-    RecipeSoulBooster = "item_recipe_soul_booster",
-    /** @name */
-    RecipeSoulRing = "item_recipe_soul_ring",
-    /** @name */
-    RecipeSphere = "item_recipe_sphere",
-    /** @name */
-    RecipeTranquilBoots = "item_recipe_tranquil_boots",
-    /** @name */
-    RecipeTravelBoots = "item_recipe_travel_boots",
-    /** @name */
-    RecipeTravelBoots2 = "item_recipe_travel_boots_2",
-    /** @name */
-    RecipeUltimateScepter = "item_recipe_ultimate_scepter",
-    /** @name */
-    RecipeUrnOfShadows = "item_recipe_urn_of_shadows",
-    /** @name */
-    RecipeVanguard = "item_recipe_vanguard",
-    /** @name */
-    RecipeVeilOfDiscord = "item_recipe_veil_of_discord",
-    /** @name */
-    RecipeVladmir = "item_recipe_vladmir",
-    /** @name */
-    RecipeWardDispenser = "item_recipe_ward_dispenser",
-    /** @name */
-    RecipeWraithBand = "item_recipe_wraith_band",
-    /** @name */
-    RecipeYasha = "item_recipe_yasha",
+    // /** @name */
+    // RecipeAbyssalBlade = "item_recipe_abyssal_blade",
+    // /** @name */
+    // RecipeAetherLens = "item_recipe_aether_lens",
+    // /** @name */
+    // RecipeAncientJanggo = "item_recipe_ancient_janggo",
+    // /** @name */
+    // RecipeArcaneBoots = "item_recipe_arcane_boots",
+    // /** @name */
+    // RecipeArmlet = "item_recipe_armlet",
+    // /** @name */
+    // RecipeAssault = "item_recipe_assault",
+    // /** @name */
+    // RecipeBasher = "item_recipe_basher",
+    // /** @name */
+    // RecipeBfury = "item_recipe_bfury",
+    // /** @name */
+    // RecipeBlackKingBar = "item_recipe_black_king_bar",
+    // /** @name */
+    // RecipeBladeMail = "item_recipe_blade_mail",
+    // /** @name */
+    // RecipeBloodstone = "item_recipe_bloodstone",
+    // /** @name */
+    // RecipeBloodthorn = "item_recipe_bloodthorn",
+    // /** @name */
+    // RecipeBracer = "item_recipe_bracer",
+    // /** @name */
+    // RecipeBuckler = "item_recipe_buckler",
+    // /** @name */
+    // RecipeButterfly = "item_recipe_butterfly",
+    // /** @name */
+    // RecipeCrimsonGuard = "item_recipe_crimson_guard",
+    // /** @name */
+    // RecipeCyclone = "item_recipe_cyclone",
+    // /** @name */
+    // RecipeDagon = "item_recipe_dagon",
+    // /** @name */
+    // RecipeDagon2 = "item_recipe_dagon_2",
+    // /** @name */
+    // RecipeDagon3 = "item_recipe_dagon_3",
+    // /** @name */
+    // RecipeDagon4 = "item_recipe_dagon_4",
+    // /** @name */
+    // RecipeDagon5 = "item_recipe_dagon_5",
+    // /** @name */
+    // RecipeDesolator = "item_recipe_desolator",
+    // /** @name */
+    // RecipeDiffusalBlade = "item_recipe_diffusal_blade",
+    // /** @name */
+    // RecipeDiffusalBlade2 = "item_recipe_diffusal_blade_2",
+    // /** @name */
+    // RecipeDragonLance = "item_recipe_dragon_lance",
+    // /** @name */
+    // RecipeEchoSabre = "item_recipe_echo_sabre",
+    // /** @name */
+    // RecipeEtherealBlade = "item_recipe_ethereal_blade",
+    // /** @name */
+    // RecipeForceStaff = "item_recipe_force_staff",
+    // /** @name */
+    // RecipeGlimmerCape = "item_recipe_glimmer_cape",
+    // /** @name */
+    // RecipeGreaterCrit = "item_recipe_greater_crit",
+    // /** @name */
+    // RecipeGuardianGreaves = "item_recipe_guardian_greaves",
+    // /** @name */
+    // RecipeHandOfMidas = "item_recipe_hand_of_midas",
+    // /** @name */
+    // RecipeHeaddress = "item_recipe_headdress",
+    // /** @name */
+    // RecipeHeart = "item_recipe_heart",
+    // /** @name */
+    // RecipeHeavensHalberd = "item_recipe_heavens_halberd",
+    // /** @name */
+    // RecipeHelmOfTheDominator = "item_recipe_helm_of_the_dominator",
+    // /** @name */
+    // RecipeHoodOfDefiance = "item_recipe_hood_of_defiance",
+    // /** @name */
+    // RecipeHurricanePike = "item_recipe_hurricane_pike",
+    // /** @name */
+    // RecipeInvisSword = "item_recipe_invis_sword",
+    // /** @name */
+    // RecipeIronTalon = "item_recipe_iron_talon",
+    // /** @name */
+    // RecipeLesserCrit = "item_recipe_lesser_crit",
+    // /** @name */
+    // RecipeLotusOrb = "item_recipe_lotus_orb",
+    // /** @name */
+    // RecipeMaelstrom = "item_recipe_maelstrom",
+    // /** @name */
+    // RecipeMagicWand = "item_recipe_magic_wand",
+    // /** @name */
+    // RecipeManta = "item_recipe_manta",
+    // /** @name */
+    // RecipeMaskOfMadness = "item_recipe_mask_of_madness",
+    // /** @name */
+    // RecipeMedallionOfCourage = "item_recipe_medallion_of_courage",
+    // /** @name */
+    // RecipeMekansm = "item_recipe_mekansm",
+    // /** @name */
+    // RecipeMjollnir = "item_recipe_mjollnir",
+    // /** @name */
+    // RecipeMonkeyKingBar = "item_recipe_monkey_king_bar",
+    // /** @name */
+    // RecipeMoonShard = "item_recipe_moon_shard",
+    // /** @name */
+    // RecipeNecronomicon = "item_recipe_necronomicon",
+    // /** @name */
+    // RecipeNecronomicon2 = "item_recipe_necronomicon_2",
+    // /** @name */
+    // RecipeNecronomicon3 = "item_recipe_necronomicon_3",
+    // /** @name */
+    // RecipeNullTalisman = "item_recipe_null_talisman",
+    // /** @name */
+    // RecipeOblivionStaff = "item_recipe_oblivion_staff",
+    // /** @name */
+    // RecipeOctarineCore = "item_recipe_octarine_core",
+    // /** @name */
+    // RecipeOrchid = "item_recipe_orchid",
+    // /** @name */
+    // RecipePers = "item_recipe_pers",
+    // /** @name */
+    // RecipePhaseBoots = "item_recipe_phase_boots",
+    // /** @name */
+    // RecipePipe = "item_recipe_pipe",
+    // /** @name */
+    // RecipePoorMansShield = "item_recipe_poor_mans_shield",
+    // /** @name */
+    // RecipePowerTreads = "item_recipe_power_treads",
+    // /** @name */
+    // RecipeRadiance = "item_recipe_radiance",
+    // /** @name */
+    // RecipeRapier = "item_recipe_rapier",
+    // /** @name */
+    // RecipeRefresher = "item_recipe_refresher",
+    // /** @name */
+    // RecipeRingOfAquila = "item_recipe_ring_of_aquila",
+    // /** @name */
+    // RecipeRingOfBasilius = "item_recipe_ring_of_basilius",
+    // /** @name */
+    // RecipeRodOfAtos = "item_recipe_rod_of_atos",
+    // /** @name */
+    // RecipeSange = "item_recipe_sange",
+    // /** @name */
+    // RecipeSangeAndYasha = "item_recipe_sange_and_yasha",
+    // /** @name */
+    // RecipeSatanic = "item_recipe_satanic",
+    // /** @name */
+    // RecipeSheepstick = "item_recipe_sheepstick",
+    // /** @name */
+    // RecipeShivasGuard = "item_recipe_shivas_guard",
+    // /** @name */
+    // RecipeSilverEdge = "item_recipe_silver_edge",
+    // /** @name */
+    // RecipeSkadi = "item_recipe_skadi",
+    // /** @name */
+    // RecipeSolarCrest = "item_recipe_solar_crest",
+    // /** @name */
+    // RecipeSoulBooster = "item_recipe_soul_booster",
+    // /** @name */
+    // RecipeSoulRing = "item_recipe_soul_ring",
+    // /** @name */
+    // RecipeSphere = "item_recipe_sphere",
+    // /** @name */
+    // RecipeTranquilBoots = "item_recipe_tranquil_boots",
+    // /** @name */
+    // RecipeTravelBoots = "item_recipe_travel_boots",
+    // /** @name */
+    // RecipeTravelBoots2 = "item_recipe_travel_boots_2",
+    // /** @name */
+    // RecipeUltimateScepter = "item_recipe_ultimate_scepter",
+    // /** @name */
+    // RecipeUrnOfShadows = "item_recipe_urn_of_shadows",
+    // /** @name */
+    // RecipeVanguard = "item_recipe_vanguard",
+    // /** @name */
+    // RecipeVeilOfDiscord = "item_recipe_veil_of_discord",
+    // /** @name */
+    // RecipeVladmir = "item_recipe_vladmir",
+    // /** @name */
+    // RecipeWardDispenser = "item_recipe_ward_dispenser",
+    // /** @name */
+    // RecipeWraithBand = "item_recipe_wraith_band",
+    // /** @name */
+    // RecipeYasha = "item_recipe_yasha",
     /** @name */
     Refresher = "item_refresher",
     /** @name */
@@ -535,28 +535,28 @@ enum DotaItem {
     WardSentry = "item_ward_sentry",
     /** @name */
     WindLace = "item_wind_lace",
-    /** @name */
-    WinterCake = "item_winter_cake",
-    /** @name */
-    WinterCoco = "item_winter_coco",
-    /** @name */
-    WinterCookie = "item_winter_cookie",
-    /** @name */
-    WinterGreevilChewy = "item_winter_greevil_chewy",
-    /** @name */
-    WinterGreevilGarbage = "item_winter_greevil_garbage",
-    /** @name */
-    WinterGreevilTreat = "item_winter_greevil_treat",
-    /** @name */
-    WinterHam = "item_winter_ham",
-    /** @name */
-    WinterKringle = "item_winter_kringle",
-    /** @name */
-    WinterMushroom = "item_winter_mushroom",
-    /** @name */
-    WinterSkates = "item_winter_skates",
-    /** @name */
-    WinterStocking = "item_winter_stocking",
+    // /** @name */
+    // WinterCake = "item_winter_cake",
+    // /** @name */
+    // WinterCoco = "item_winter_coco",
+    // /** @name */
+    // WinterCookie = "item_winter_cookie",
+    // /** @name */
+    // WinterGreevilChewy = "item_winter_greevil_chewy",
+    // /** @name */
+    // WinterGreevilGarbage = "item_winter_greevil_garbage",
+    // /** @name */
+    // WinterGreevilTreat = "item_winter_greevil_treat",
+    // /** @name */
+    // WinterHam = "item_winter_ham",
+    // /** @name */
+    // WinterKringle = "item_winter_kringle",
+    // /** @name */
+    // WinterMushroom = "item_winter_mushroom",
+    // /** @name */
+    // WinterSkates = "item_winter_skates",
+    // /** @name */
+    // WinterStocking = "item_winter_stocking",
     /** @name */
     WraithBand = "item_wraith_band",
     /** @name */
