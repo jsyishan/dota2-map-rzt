@@ -8,12 +8,12 @@ enum ItemType {
     Inventory
 }
 
-function itemTypeToString(itemType: ItemType):string {
+function itemTypeToString(itemType: ItemType): string {
     return match(itemType)
-           .with(ItemType.Ability, () => "获得技能")
-           .with(ItemType.Event, () => "触发事件")
-           .with(ItemType.Inventory, () => "获得物品")
-           .run()
+        .with(ItemType.Ability, () => "获得技能")
+        .with(ItemType.Event, () => "触发事件")
+        .with(ItemType.Inventory, () => "获得物品")
+        .run()
 }
 
 type ItemProps = {
@@ -28,14 +28,14 @@ type ItemState = {
 class Item extends React.Component<ItemProps, ItemState> {
     render(): React.ReactNode {
         return (
-            <Panel className='Item' onactivate={() => {
+            <Panel id='Item' onactivate={() => {
                 GameEvents.SendCustomGameEventToServer('OnClickGachaItem', { itemName: this.props.itemName, itemType: this.props.itemType as number })
                 render(<></>, $.GetContextPanel())
             }}>
-                <Label style={{ fontSize: '30px', horizontalAlign: 'middle', textDecoration: 'underline' }} text={itemTypeToString(this.props.itemType)} />
+                <Label id='ItemTitle' text={itemTypeToString(this.props.itemType)} />
                 {
                     this.props.itemType === ItemType.Ability &&
-                    <DOTAAbilityImage style={{ width: '100%', height: '100%' }} abilityname={this.props.itemName} showtooltip={false} />
+                    <DOTAAbilityImage className='FullSize' abilityname={this.props.itemName} showtooltip={false} />
                 }
                 {
                     this.props.itemType === ItemType.Event &&
@@ -43,9 +43,9 @@ class Item extends React.Component<ItemProps, ItemState> {
                 }
                 {
                     this.props.itemType === ItemType.Inventory &&
-                    <DOTAItemImage style={{ width: '100%', height: '100%' }} itemname={this.props.itemName} showtooltip={false} />
+                    <DOTAItemImage className='FullSize' itemname={this.props.itemName} showtooltip={false} />
                 }
-                <Label style={{ textAlign: 'center', color: '#12B3D4FF', fontSize: '25px', lineHeight: '26px', fontWeight: 'medium', horizontalAlign: 'middle', verticalAlign: 'bottom' }} text={this.props.itemText} />
+                <Label id='ItemText' text={this.props.itemText} />
             </Panel>
         )
     }
@@ -57,11 +57,11 @@ type BackgroundProps = {
 class Background extends React.Component<BackgroundProps> {
     render(): React.ReactNode {
         return (
-            <Panel style={{ flowChildren: 'down' }} className='Background'>
-                <Label style={{ color: '#C19F1FFF', verticalAlign: 'middle', fontSize: '80px', horizontalAlign: 'center', textDecoration: 'underline' }} text="抽卡" />
+            <Panel style={{ flowChildren: 'down' }} id='Background'>
+                <Label id="BackgroundTitle" text="升级" />
                 <Panel style={{ flowChildren: 'right' }}>
                     {
-                        this.props.items.map((o, i) => <Item itemText={o.itemText} itemName={o.itemName} itemType={o.itemType as ItemType} key={i}/>)
+                        this.props.items.map((o, i) => <Item itemText={o.itemText} itemName={o.itemName} itemType={o.itemType as ItemType} key={i} />)
                     }
                 </Panel>
             </Panel>
@@ -69,7 +69,7 @@ class Background extends React.Component<BackgroundProps> {
     }
 }
 
-$.Msg("test ui")
+$.Msg("gacha ui")
 
 GameEvents.Subscribe('OnGachaEnter', (e) => {
     const items: Array<ItemProps> = []
@@ -80,7 +80,7 @@ GameEvents.Subscribe('OnGachaEnter', (e) => {
             itemText: e.itemTexts[i] === '' ? $.Localize(`#DOTA_Tooltip_Ability_${e.itemNames[i]}`) : e.itemTexts[i]
         })
     }
-    render(<Background items={items}/>, $.GetContextPanel())
+    render(<Background items={items} />, $.GetContextPanel())
     $.Msg("OnGachaEnter", items)
 })
 
@@ -88,3 +88,17 @@ GameEvents.Subscribe('OnGachaExit', () => {
     render(<></>, $.GetContextPanel())
     $.Msg("OnGachaExit")
 })
+
+function test() {
+    $.Msg("test gacha ui")
+    const items: Array<ItemProps> = []
+    for (let i = 0; i < 3; i++) {
+        items.push({
+            itemName: 'item_blink',
+            itemType: 2,
+            itemText: $.Localize(`#DOTA_Tooltip_Ability_item_blink`)
+        })
+    }
+    render(<Background items={items} />, $.GetContextPanel())
+}
+// test()
