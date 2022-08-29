@@ -9,8 +9,10 @@ enum CustomLocation {
 
     // radiant
     SpawnerRadiantTop = "spawner_radiant_top",
+    SpawnerRadiantBottom = "spawner_radiant_bottom",
     // dire
-    SpawnerDireTop = "spawner_dire_top"
+    SpawnerDireTop = "spawner_dire_top",
+    SpawnerDireBottom = "spawner_dire_bottom",
 }
 
 enum TriggerLocation {
