@@ -13,8 +13,8 @@ enum DotaItem {
     Armlet = "item_armlet",
     /** @name */
     Assault = "item_assault",
-    /** @name */
-    Banana = "item_banana",
+    // /** @name */
+    // Banana = "item_banana",
     /** @name */
     Basher = "item_basher",
     /** @name */
@@ -189,18 +189,18 @@ enum DotaItem {
     MonkeyKingBar = "item_monkey_king_bar",
     /** @name */
     MoonShard = "item_moon_shard",
-    /** @name */
-    MysteryArrow = "item_mystery_arrow",
-    /** @name */
-    MysteryHook = "item_mystery_hook",
-    /** @name */
-    MysteryMissile = "item_mystery_missile",
-    /** @name */
-    MysteryToss = "item_mystery_toss",
-    /** @name */
-    MysteryVacuum = "item_mystery_vacuum",
-    /** @name */
-    MysticStaff = "item_mystic_staff",
+    // /** @name */
+    // MysteryArrow = "item_mystery_arrow",
+    // /** @name */
+    // MysteryHook = "item_mystery_hook",
+    // /** @name */
+    // MysteryMissile = "item_mystery_missile",
+    // /** @name */
+    // MysteryToss = "item_mystery_toss",
+    // /** @name */
+    // MysteryVacuum = "item_mystery_vacuum",
+    // /** @name */
+    // MysticStaff = "item_mystic_staff",
     /** @name */
     Necronomicon = "item_necronomicon",
     /** @name */
@@ -443,20 +443,20 @@ enum DotaItem {
     RingOfProtection = "item_ring_of_protection",
     /** @name */
     RingOfRegen = "item_ring_of_regen",
-    /** @name */
-    RiverPainter = "item_river_painter",
-    /** @name */
-    RiverPainter2 = "item_river_painter2",
-    /** @name */
-    RiverPainter3 = "item_river_painter3",
-    /** @name */
-    RiverPainter4 = "item_river_painter4",
-    /** @name */
-    RiverPainter5 = "item_river_painter5",
-    /** @name */
-    RiverPainter6 = "item_river_painter6",
-    /** @name */
-    RiverPainter7 = "item_river_painter7",
+    // /** @name */
+    // RiverPainter = "item_river_painter",
+    // /** @name */
+    // RiverPainter2 = "item_river_painter2",
+    // /** @name */
+    // RiverPainter3 = "item_river_painter3",
+    // /** @name */
+    // RiverPainter4 = "item_river_painter4",
+    // /** @name */
+    // RiverPainter5 = "item_river_painter5",
+    // /** @name */
+    // RiverPainter6 = "item_river_painter6",
+    // /** @name */
+    // RiverPainter7 = "item_river_painter7",
     /** @name */
     Robe = "item_robe",
     /** @name */
