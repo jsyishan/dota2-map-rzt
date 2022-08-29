@@ -16,7 +16,8 @@ export default class Event_EntityKilled implements IEvent<"entity_killed"> {
         const unit = EntIndexToHScript(event.entindex_killed) as CDOTA_BaseNPC
         const killer = EntIndexToHScript(event.entindex_attacker) as CDOTA_BaseNPC_Hero
         if (unit.GetTeam() == DotaTeam.NEUTRALS) {
-            const birthPoint = killer.GetTeam() === DotaTeam.GOODGUYS ? CustomLocation.SpawnerRadiantTop : CustomLocation.SpawnerDireTop
+            const birthPoint1 = killer.GetTeam() === DotaTeam.GOODGUYS ? CustomLocation.SpawnerRadiantTop : CustomLocation.SpawnerDireTop
+            const birthPoint2 = killer.GetTeam() === DotaTeam.GOODGUYS ? CustomLocation.SpawnerRadiantBottom : CustomLocation.SpawnerDireBottom
             this.spawner.addWave(new class implements IWave {
                 delay = 1
                 info = {
@@ -26,10 +27,24 @@ export default class Event_EntityKilled implements IEvent<"entity_killed"> {
                     team: killer.GetTeam()
                 }
                 route = {
-                    birthPoint: birthPoint,
+                    birthPoint: birthPoint1,
                     reachNext: true
                 }
             })
+            this.spawner.addWave(new class implements IWave {
+                delay = 2
+                info = {
+                    total: 1,
+                    interval: 1.0,
+                    name: unit.GetUnitName(),
+                    team: killer.GetTeam()
+                }
+                route = {
+                    birthPoint: birthPoint2,
+                    reachNext: true
+                }
+            })
+            this.spawner.spawn()
             this.spawner.spawn()
         }
     }
