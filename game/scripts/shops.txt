@@ -1,0 +1,5 @@
+"dota_shops" {
+    "consumables" {
+        "item" "item_tower_base"
+    }
+}
